@@ -1,0 +1,74 @@
+<script type="text/javascript">
+$(document).on('load',function() {
+  /* INITIALIZE */
+  login();
+
+  /* DISPLAY */
+  var ajax=[];
+  ajax[0] = $.ajax({
+    type: 'get',
+    url: 'http://www.safein-safeout.com/application_guard/index.php?action=invitation&step=view&id='+location.hash.substring(location.hash.indexOf('/')+1)+'&hash='+localStorage.getItem('hash')
+  });  
+
+  var phoneparser=[],phone=[],code=[];
+  $.when(ajax[0]).done(function(response_invitation) {
+    response_invitation = jQuery.parseJSON(response_invitation);
+
+    if(response_invitation.status == '0') {
+      phoneparser = parsePhone(response_invitation.invitation_customer[0].phone);
+      phone[0] = '+'+phoneparser.countryCode+'-'+phoneparser.areaCode+'-'+phoneparser.number;
+
+      phoneparser = parsePhone(response_invitation.invitation_customer[1].phone);
+      phone[1] = '+'+phoneparser.countryCode+'-'+phoneparser.areaCode+'-'+phoneparser.number;
+
+      code[0] = '<h2><b>'+response_invitation.invitation.name+'</b></h2><p>Period (Start): '+response_invitation.invitation.period_start+'</p><p>Period (End): '+response_invitation.invitation.period_end+'</p></a>';
+      code[1] = '<p>Phone: '+phone[0]+'</p><p>First Name: '+response_invitation.invitation_customer[0].customer_first_name+'</p><p>Last Name: '+response_invitation.invitation_customer[0].customer_last_name+'</p>';
+      code[2] = '<p>Phone: '+phone[1]+'</p><p>First Name: '+response_invitation.invitation_customer[1].customer_first_name+'</p><p>Last Name: '+response_invitation.invitation_customer[1].customer_last_name+'</p>';
+      code[3] = '<p>Address: '+response_invitation.invitation.building_address+' ('+response_invitation.invitation.property_address+')</p><p>ZIP: '+response_invitation.invitation.building_zip+'</p><p>City: '+response_invitation.invitation.building_city+'</p><p>State/Province: '+response_invitation.invitation.building_state_province+'</p><p>Country: '+response_invitation.invitation.building_country+'</p>';
+ 
+      $('#data_0').html(code[0]); 
+      $('#data_1').html(code[1]); 
+      $('#data_2').html(code[2]); 
+      $('#data_3').html(code[3]); 
+
+      load_display();
+    } else if(response_invitation.status == '1') {
+      load('invitation.html',true);
+    }
+  });
+});
+</script>
+
+
+<div id="content">
+ <div class="list list-inset">
+  <div class="item item-divider">
+   Invitation - View 
+  </div>
+
+  <div id="data_0" class="item">
+  </div>
+
+  <div class="item item-divider">
+   Invitation - View (Guest)
+  </div>
+
+  <div id="data_1" class="item">
+  </div>
+
+  <div class="item item-divider">
+   Invitation - View (Customer)
+  </div>
+
+  <div id="data_2" class="item">
+  </div>
+
+  <div class="item item-divider">
+   Invitation - View (Property)
+  </div>
+
+  <div id="data_3" class="item">
+  </div>
+  </div>
+ </div>
+</div>

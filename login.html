@@ -1,0 +1,52 @@
+<script type="text/javascript">
+$(document).on('load',function() {
+  /* FORM */
+  $(document).on('submit','#form',function() {
+    $.ajax({
+      type: 'post',
+      url: 'http://www.safein-safeout.com/application_guard/index.php?action=login',
+      data: $('#form').serialize(),
+      cache: false,
+      async: false,
+      success: function(result) {
+        result = JSON.parse(result);
+
+        if(result.status == '0') {
+          localStorage.setItem('hash',result.hash);
+
+          load('invitation.html',true);
+        } else if(result.status == '1') {
+          alert(result.error.join('\n'));
+        }
+      }
+    });
+
+    return false;
+  });
+
+  /* DISPLAY */
+  load_display();
+});
+</script>
+
+<div id="content">
+ <div class="list list-inset">
+  <div class="item item-divider">
+   Login
+  </div>
+
+  <form id="form">
+   <label class="item item-input">
+    <span class="input-label">Username</span>
+    <input type="text" name="username"">
+   </label>
+ 
+   <label class="item item-input">
+    <span class="input-label">Password</span>
+    <input type="password" name="password">
+   </label>  
+  
+   <button class="button button-block button-stable" style="border: 1px solid #AAAAAA">Proceed</button>
+  </form>
+ </div>
+</div>
