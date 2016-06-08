@@ -1,4 +1,4 @@
-<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.safeinsafeout.guard" version="2.00" android-versionCode="50">
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.safeinsafeout-guard" version="2.00" android-versionCode="50">
  <name><![CDATA[Safe In & Safe Out (Guard)]]></name>
 
  <description><![CDATA[Safe In & Safe Out is designed for Easy Access.]]></description>
@@ -28,8 +28,6 @@
  <plugin name="cordova-plugin-vibration" source="npm" spec="~2.1.0"/>
  <plugin name="cordova-plugin-whitelist" source="npm" spec="~1.2.1"/>
  <plugin name="com.phonegap.plugins.barcodescanner" source="npm" spec="~4.1.0"/>
-
- <preference name="android-minSdkVersion" value="19"/>
 
  <icon src="skin/icon.png"/>
 
