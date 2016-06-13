@@ -20,6 +20,18 @@
   z-index: 10;
 }
 
+#progress {
+ display: none;
+}
+
+#progress > img {
+ position: fixed;
+ top: 50%;
+ left: 50%;
+ padding-top: 93px;
+ transform: translate(-50%, -50%);
+}
+
 #connectivity {
  position: fixed;
  display: none;

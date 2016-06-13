@@ -22,8 +22,10 @@ function load(page,history) {
     $('#tabs_inside').css('visibility','hidden');
   }
 
+  $('#content').html('');
   $('#content').hide();
   $('#overlay').show();
+  $('#progress').show();
 
   if(sessionStorage.getItem('url')) url = sessionStorage.getItem('url');
 
@@ -46,5 +48,6 @@ function load_display() {
 
   $('#content').fadeIn(750);
   $('#overlay').fadeOut(750);
-  $('#connectivity').fadeOut(750);
+  $('#progress').hide();
+  $('#connectivity').hide();
 }

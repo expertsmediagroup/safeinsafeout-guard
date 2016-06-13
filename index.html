@@ -63,6 +63,7 @@ $(document).ready(function() {
   $(document).ajaxError(function() {
     $('#content').hide();
     $('#overlay').show();
+    $('#progress').hide();
     $('#connectivity').fadeIn(750);
   });
 
@@ -100,6 +101,10 @@ document.addEventListener("deviceready",function() {
 <div id="content"></div>
 
 <div id="overlay"></div>
+
+<div id="progress">
+ <img src="skin/progress.gif">
+</div>
 
 <div id="connectivity">
  Can't connect right now.
