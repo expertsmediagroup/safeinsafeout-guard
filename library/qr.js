@@ -1,16 +1,12 @@
-$(document).on('initialize',function() {
+$(document).on('device-load',function() {
   $('form').find('[name="qr"]').click(function() {   
-    qr();
+    var option;
+
+    option = {'formats':'QR_CODE'};
+ 
+    cordova.plugins.barcodeScanner.scan(qr_success,qr_fail,option);
   });
 });
-
-function qr() {
-  var qr_option;
-
-  qr_option = {'formats':'QR_CODE'};
- 
-  cordova.plugins.barcodeScanner.scan(qr_success,qr_fail,qr_option);
-};
 
 function qr_success(result) {
   $('form').find('[name="qr"]').val(result.text);
