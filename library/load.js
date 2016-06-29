@@ -44,6 +44,7 @@ function load(page,history) {
 }
 
 function load_display() {
+alert('trigger');
   if(device) $(document).trigger('device-load');
 
   $('#content').fadeIn(750);
