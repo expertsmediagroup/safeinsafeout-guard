@@ -30,12 +30,12 @@ alert('1');
 alert('2');
 
   filetransfer = new FileTransfer();
-alert('3');
+alert(form[0]);
   filetransfer.upload(data,encodeURI(form[0]),media_success_upload,media_fail_upload,option);
 }
 
 function media_success_upload(data) {
-alert('4');
+alert(form[1]);
   load(form[1],true);
 }
 
