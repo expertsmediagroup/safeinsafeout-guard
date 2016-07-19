@@ -22,10 +22,11 @@ function load(page,history) {
     $('#tabs_inside').css('visibility','hidden');
   }
 
-  $('#content').html('');
   $('#content').hide();
+  $('#content').html('');
   $('#overlay').show();
   $('#progress').show();
+  $('#connectivity').hide();
 
   if(sessionStorage.getItem('url')) url = sessionStorage.getItem('url');
 

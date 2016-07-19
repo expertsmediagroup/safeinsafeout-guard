@@ -9,7 +9,7 @@ $(document).on('load',function() {
 
     $.ajax({
       type: 'post',
-      url: 'http://www.safein-safeout.com/application_guard/index.php?action=invitation&hash='+localStorage.getItem('hash'),
+      url: 'http://www.safein-safeout.com/application_guard/api.php?action=invitation&hash='+localStorage.getItem('hash'),
       data: $('#form').serialize(),
       cache: false,
       async: false,
@@ -40,7 +40,10 @@ $(document).on('load',function() {
  <form id="form">
   <label class="item item-input">
    <span class="input-label">QR</span>
+<!--
    <input type="text" name="qr" readonly>
+-->
+   <input type="text" name="qr">
   </label>
  
   <button class="button button-block button-stable" style="border: 1px solid #AAAAAA">Proceed</button>
