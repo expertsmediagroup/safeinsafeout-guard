@@ -95,7 +95,7 @@ $(document).on('load',function() {
       $('#data_2').html(code[2]); 
       $('#data_3').html(code[3]); 
 
-      upload[0] = 'http://www.safein-safeout.com/application_customer/api.php?action=invitation&step=identification&phone='+response_invitation.invitation_customer[0].phone+'&hash='+localStorage.getItem('hash');
+      upload[0] = 'http://www.safein-safeout.com/application_guard/api.php?action=invitation&step=identification&phone='+response_invitation.invitation_customer[0].phone+'&hash='+localStorage.getItem('hash');
       upload[1] = 'invitation_view.html#'+location.hash.substring(location.hash.indexOf('/')+1);
 
       load_display();
