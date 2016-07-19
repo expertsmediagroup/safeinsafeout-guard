@@ -19,17 +19,23 @@ function media_success(data) {
 
   $(document).trigger('upload');  
 
+alert('1');
+
   option = new FileUploadOptions();
   option.fileKey = 'file';
   option.fileName = data.substr(data.lastIndexOf('/')+1);
   option.mimeType = 'image/jpeg';
   option.params = {};
 
+alert('2');
+
   filetransfer = new FileTransfer();
+alert('3');
   filetransfer.upload(data,encodeURI(form[0]),media_success_upload,media_fail_upload,option);
 }
 
 function media_success_upload(data) {
+alert('4');
   load(form[1],true);
 }
 
