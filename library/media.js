@@ -1,4 +1,4 @@
-var form=[];
+var upload=[];
 $(document).on('device-load',function() {
   var source,option;
   $('button[data-media]').on('click',function() {
@@ -31,13 +31,13 @@ alert('1');
 alert('2');
 
   filetransfer = new FileTransfer();
-alert(form[0]);
-  filetransfer.upload(data,encodeURI(form[0]),media_success_upload,media_fail_upload,option);
+alert(upload[0]);
+  filetransfer.upload(data,encodeURI(upload[0]),media_success_upload,media_fail_upload,option);
 }
 
 function media_success_upload(data) {
-alert(form[1]);
-  load(form[1],true);
+alert(upload[1]);
+  load(upload[1],true);
 }
 
 function media_fail(message) {
