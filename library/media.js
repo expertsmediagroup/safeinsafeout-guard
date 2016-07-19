@@ -1,3 +1,4 @@
+var form=[];
 $(document).on('device-load',function() {
   var source,option;
   $('button[data-media]').on('click',function() {
