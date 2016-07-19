@@ -78,7 +78,10 @@ $(document).on('load',function() {
       code[1] += '<p>First Name: '+response_invitation.invitation_customer[0].customer_first_name+'</p>';
       code[1] += '<p>Last Name: '+response_invitation.invitation_customer[0].customer_last_name+'</p>';
       code[1] += '<p><img src="http://www.safein-safeout.com/application_guard/api.php?action=invitation&step=identification&phone='+response_invitation.invitation_customer[0].phone+'&hash='+localStorage.getItem('hash')+'" style="width:100%; margin-top:15px; border:1px solid #AAAAAA"></p>';
-      code[1] += '<button data-media="camera" class="button button-block button-stable" style="border: 1px solid #AAAAAA">Upload (Camera)</button>';
+
+      if(response_invitation.invitation.status=='Confirmed (Coming)' || response_invitation.invitation.status=='Scanned') {
+        code[1] += '<button data-media="camera" class="button button-block button-stable" style="border: 1px solid #AAAAAA">Upload (Camera)</button>';
+      }
 
       code[2] = '<p>Phone: '+phone[1]+'</p>';
       code[2] += '<p>First Name: '+response_invitation.invitation_customer[1].customer_first_name+'</p>';
